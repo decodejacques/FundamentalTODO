@@ -5,18 +5,24 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-    this.state = { number: 0 }
+    this.state = { numbers: [] }
   }
+
+  addNumber = () => {
+    var num = Math.random();
+    this.setState(st => { return { numbers: st.numbers.concat(num) } })
+  }
+
   componentDidMount() {
     setInterval(
-      () => this.setState({ number: Math.random() }),
-      1000);
+      this.addNumber,
+      2000);
   }
 
   render() {
     return (
       <div className="App">
-        {this.state.number}
+        {this.state.numbers.map(x => (<li> {x} </li>))}
       </div>
     );
   }
