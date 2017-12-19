@@ -19,9 +19,7 @@ class App extends Component {
       2000);
   }
 
-  add = () => {
-   // console.log(this.inp);
-  
+  add = () => { 
     this.setState(st => { return { numbers: st.numbers.concat(this.inp.value) } })
   }
 
