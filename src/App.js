@@ -8,26 +8,20 @@ class App extends Component {
     this.state = { numbers: [] }
   }
 
-  addNumber = () => {
-    var num = Math.random();
-    this.setState(st => { return { numbers: st.numbers.concat(num) } })
-  }
-
-  componentDidMount() {
-    setInterval(
-      this.addNumber,
-      2000);
-  }
-
-  add = () => { 
+  add = () => {
     this.setState(st => { return { numbers: st.numbers.concat(this.inp.value) } })
+  }
+
+  deleteEverything = () => {
+    this.setState({ numbers: [] })
   }
 
   render() {
     return (
       <div className="App">
-      <input ref={r => this.inp = r}></input>
-      <button onClick={this.add}>add it </button>
+        <input ref={r => this.inp = r}></input>
+        <button onClick={this.add}>add it </button>
+        <button onClick={this.deleteEverything}>delete them </button>
         {this.state.numbers.map(x => (<li> {x} </li>))}
       </div>
     );
