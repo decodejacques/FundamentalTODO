@@ -15,6 +15,7 @@ class TodoList extends Component {
   }
 
   render() {
+    if(this.props.hidden) return null;
     return (
       <div className="App">
         <input ref={r => this.inp = r}></input>
