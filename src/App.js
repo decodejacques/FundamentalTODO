@@ -9,7 +9,7 @@ class App extends Component {
   }
 
   add = () => {
-    this.setState(st => { return { numbers: st.numbers.concat(this.inp.value) } })
+    this.setState(st => { return { numbers: st.numbers.concat(this.inp.value) } }, () => this.inp.value = "")
   }
 
   deleteEverything = () => {
